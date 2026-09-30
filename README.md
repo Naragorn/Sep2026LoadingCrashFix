@@ -49,8 +49,8 @@ Check Windows Event Viewer after a crash. If it says your game crashed in
 ## Heads up
 
 - **Oblivion:** tested and working (Windows 11, build 26200.9550).
-- **New Vegas:** lots of players report the same crash, but I haven't tested
-  it in the game myself yet.
+- **New Vegas:** tested and working too (crashed on a save load without the
+  plugin, loaded and played fine with it).
 - **Fallout 3:** same engine, should work too, but untested and no reports
   so far.
 
