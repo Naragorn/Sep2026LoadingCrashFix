@@ -2,7 +2,7 @@
 project(Sep2026LoadingCrashFix CXX)
 
 if(NOT CMAKE_SIZEOF_VOID_P EQUAL 4)
-	message(FATAL_ERROR "Oblivion is 32-bit: configure with a 32-bit toolchain (vcvars32.bat or -A Win32).")
+	message(FATAL_ERROR "Oblivion, Fallout 3 and New Vegas are 32-bit: configure with a 32-bit toolchain (vcvars32.bat or -A Win32).")
 endif()
 
 set(CMAKE_CXX_STANDARD 17)
@@ -16,14 +16,25 @@ add_library(decoder_block STATIC src/DecoderBlock.cpp)
 target_include_directories(decoder_block PUBLIC src)
 target_link_libraries(decoder_block PUBLIC ole32)
 
+add_library(plugin_entry STATIC src/PluginEntry.cpp)
+target_include_directories(plugin_entry PUBLIC src)
+
 add_library(Sep2026LoadingCrashFix SHARED src/Plugin.cpp)
-target_link_libraries(Sep2026LoadingCrashFix PRIVATE decoder_block)
+target_link_libraries(Sep2026LoadingCrashFix PRIVATE decoder_block plugin_entry)
 
 enable_testing()
 
 add_executable(DecoderBlockTest tests/DecoderBlockTest.cpp)
 target_link_libraries(DecoderBlockTest PRIVATE decoder_block)
 add_test(NAME DecoderBlockTest COMMAND DecoderBlockTest)
+
+add_executable(PluginEntryTest tests/PluginEntryTest.cpp)
+target_link_libraries(PluginEntryTest PRIVATE plugin_entry)
+add_test(NAME PluginEntryTest COMMAND PluginEntryTest)
+
+add_executable(ExportsTest tests/ExportsTest.cpp)
+add_dependencies(ExportsTest Sep2026LoadingCrashFix)
+add_test(NAME ExportsTest COMMAND ExportsTest $<TARGET_FILE:Sep2026LoadingCrashFix>)
 
 add_executable(RenderTest tests/RenderTest.cpp)
 target_link_libraries(RenderTest PRIVATE decoder_block strmiids)
