@@ -4,6 +4,8 @@ Oblivion crashing right after the main menu, just before the loading screen?
 If you're on Windows 11 and recently got update **KB5124010**, this little
 plugin is for you.
 
+**[⬇ Download the latest release](https://github.com/Naragorn/Sep2026LoadingCrashFix/releases/latest)**
+
 ## Install
 
 1. You need [xOBSE](https://github.com/llde/xOBSE).
