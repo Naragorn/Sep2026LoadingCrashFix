@@ -28,6 +28,9 @@ Catch is, Windows likes to put it right back. Turning off "Get the latest
 updates as soon as they're available" in Windows Update helps, but it may
 still come back with a later update. The plugin keeps working either way.
 
+Or... maybe it's time to embrace Linux 🐧 No surprise Windows updates
+breaking your old games over there.
+
 ## What's going on?
 
 The update ships a broken Windows audio decoder (`msmpeg2ac3dec.dll`).
