@@ -19,6 +19,31 @@ folder inside it into your game's `Data` folder.
 
 It's the same DLL for all three games. To remove it, just delete it.
 
+Two things that trip people up:
+
+- **The folder matters.** The DLL has to sit in `Data\<extender>\Plugins\`,
+  not in the game folder and not loose in `Data`.
+- **Start the game through the script extender** (`obse_loader.exe`,
+  `nvse_loader.exe`, `fose_loader.exe`), or let your mod manager do it.
+  Started the normal way, the extender doesn't load, and neither does the fix.
+
+**Fallout 3 on Steam:** Steam ships version 1.7.0.4, and FOSE only runs on
+1.7.0.3. Run the [Fallout Anniversary Patcher](https://www.nexusmods.com/fallout3/mods/24913)
+first. After that you start `Fallout3.exe` as usual and it loads FOSE by
+itself (no `fose_loader.exe` needed). GOG is already on 1.7.0.3.
+
+## Still crashing?
+
+Look in your game folder for `Sep2026LoadingCrashFix.log`.
+
+- **No log file?** The plugin didn't load. Check the folder and how you
+  start the game (see above).
+- **Log says "AC3 decoder blocked"** but the game still crashes? Check Event
+  Viewer: if the crash is *not* in `msmpeg2ac3dec.dll`, it's a different
+  problem than this one.
+- **On Linux?** This Windows bug can't hit you there, so your crash is
+  something else.
+
 ## Rather not use a plugin?
 
 You can also just uninstall the update: Settings > Windows Update > Update
@@ -54,8 +79,8 @@ Check Windows Event Viewer after a crash. If it says your game crashed in
 - **Oblivion:** tested and working (Windows 11, build 26200.9550).
 - **New Vegas:** tested and working too (crashed on a save load without the
   plugin, loaded and played fine with it).
-- **Fallout 3:** same engine, should work too, but untested and no reports
-  so far.
+- **Fallout 3:** tested and working too (crashed on entering a cell without
+  the plugin, ran fine with it).
 
 Works for you, or doesn't? Please open an issue with your game, your Windows
 build (`winver`) and the `Sep2026LoadingCrashFix.log` from your game folder.
