@@ -6,6 +6,10 @@ update **KB5124010**, this little plugin is for you.
 
 **[⬇ Download the latest release](https://github.com/Naragorn/Sep2026LoadingCrashFix/releases/latest)**
 
+**Like it? Buy me a coffee on [Ko-fi](https://ko-fi.com/somadb).** (somadb is a
+different project I work on, but I confirm this Ko-fi link goes to me, the one
+who made this fix.)
+
 ## Install
 
 Grab the zip for your game and install it with your mod manager, or copy the
